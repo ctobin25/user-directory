@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from 'react';
-import './App.css';
+import "./App.css";
 import API from "./util/API";
+import TableArea from "./components/tablearea";
 
 function App() {
 
