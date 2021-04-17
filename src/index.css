@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.jumbotron {
+  background-color: navy;
+  border-bottom: solid 4px red;
+  
+}
+
+.container {
+  height: 50px;
+}
+
+form {
+  margin-left: 40%;
+  margin-bottom: 3%;
+}
+
+.wrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
