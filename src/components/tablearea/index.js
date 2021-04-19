@@ -91,11 +91,27 @@ export default class TableArea extends React.Component {
 
 
     SortByName = (e) => {
-        function handleClick(e) {
+   
             e.preventDefault();
             console.log('The link was clicked!');
-        }
+
+           let updateName = this.state.employees.sort((a, b) => {
+                return a.name.first.toString().localeCompare(b.name.first);
+            });
+
+            console.log('updateName', updateName)
+
+            this.setState (
+                {
+                    employees: updateName
+                }
+            )
+            //sort the first name
+            //redisplay the emplpoyee data with the sorted data
+
+
     }
+    
 
 
 
