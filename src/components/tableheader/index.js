@@ -25,7 +25,7 @@ export default class TableHeader extends React.Component {
                             {/* <th scope="col">Name</th> */}
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
-                            <th scope="col">DOB</th>
+         
                         </tr>
                     </thead>
 

@@ -1,9 +1,12 @@
 import React from 'react';
-import PageHeader from '../PageHeader';
-import SearchBar from '../SearchBar';
-import TableData from '../TableData';
-import TableHeader from '../TableHeader';
+//import PageHeader from '../PageHeader/index';
+import SearchBar from '../searchbar/index.js';
+import TableData from '../tabledata/index';
+import TableHeader from '../tableheader/index';
 import getEmployeeName from "../../util/API";
+import PageHeaderComponent from '../pageheader/pageHeaderComponent';
+import API from "../../util/API";
+
 
 
 
@@ -11,7 +14,7 @@ export default class TableArea extends React.Component {
 
 
     state = {
-        search: "name",
+        search: "",
         employees: []
     };
     
@@ -29,7 +32,7 @@ export default class TableArea extends React.Component {
     }
 
     loadEmployees = () => [
-        getEmployeeName()
+        API.searchEmployee() 
             .then((response) => {
                 console.log(response);
                 this.setState(
@@ -47,33 +50,33 @@ export default class TableArea extends React.Component {
 
 
 
-    searchEmployee = () => [
-        getEmployeeName()
-            .then((response) => {
+    // searchEmployee = () => [
+    //     getEmployeeName()
+    //         .then((response) => {
 
-                console.log(response);
+    //             console.log(response);
 
-                let filter = this.state.search;
+    //             let filter = this.state.search;
 
-                let filteredList = response.data.results.filter(item => {
+    //             let filteredList = response.data.results.filter(item => {
                     
-                    let values = Object.values(item.name.first)
-                        .join("")
-                        .toLowerCase();
-                    return values.indexOf(filter.toLowerCase()) !== -1;
-                });
+    //                 let values = Object.values(item.name.first)
+    //                     .join("")
+    //                     .toLowerCase();
+    //                 return values.indexOf(filter.toLowerCase()) !== -1;
+    //             });
 
-                this.setState(
-                    {
-                        employees: filteredList
-                    }
-                )
+    //             this.setState(
+    //                 {
+    //                     employees: filteredList
+    //                 }
+    //             )
 
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    ]
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
+    // ]
 
 
 
@@ -100,7 +103,9 @@ export default class TableArea extends React.Component {
         return (
             <div className="wrapper" >
 
-                <PageHeader />
+<PageHeaderComponent /> 
+
+
 
                 <SearchBar
                     search={this.state.search}
@@ -108,7 +113,7 @@ export default class TableArea extends React.Component {
                     handleSubmit={this.handleInputSubmit}
                 />
 
-                {/* <TableHeader /> */}
+
                 <TableHeader SortByName={this.SortByName} />
                 <TableData
                     employees={this.state.employees}

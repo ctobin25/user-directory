@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import "./App.css";
 import API from "./util/API";
 import TableArea from "./components/tablearea";
+import PageHeaderComponent from './components/pageheader/pageHeaderComponent';
+import TableHeader from './components/tableheader';
 
 function App() {
 
@@ -21,18 +23,23 @@ function App() {
     console.log(employeeState)
 
 
+    
 
   return (
     <div className="App">
-     <h1> user directory </h1>
-        {employeeState.map(employee => {
+      {/* <PageHeaderComponent /> */}
+     {/* <h1> user directory </h1> */}
+     {/* <TableHeader /> */}
+        {/* {employeeState.map(employee => {
           return(
             <>
-                     <p>{employee.name.first}</p>
-          <p>{employee.name.last}</p>
+            <p>{employee.name.first}</p>
+           <p>{employee.name.last}</p>
             </>
           )
-        })}
+        })} */}
+
+        <TableArea />
     </div>
   );
 }

@@ -1,55 +1,43 @@
-import React, { useReducer } from 'react';
-import Moment from 'react-moment';
+import React from 'react'
+
+export default function TableData(props) {
+
+    console.log('props', props)
+    return (
+        <div>
+
+        <table className="table">
 
 
+            <tbody>
+
+                {/* Map Works */}
+                {/* Moment works */}
+
+                {props.employees.map((employee) => (
+                    
+                    < tr >
+                        <th scope="row"></th>
+
+                        <td>
+                            <img
+                                src={employee.picture.medium}
+                                alt='employee'
+                            />
+                        </td>
 
 
+                        <td>{employee.name.first} {employee.name.last}</td>
+                        <td>{employee.phone}</td>
+                        <td>{employee.email}</td>
 
-export default class TableData extends React.Component {
+                    </tr>
 
-
-
-    render() {
-        return (
-            <div>
-
-                <table className="table">
+                ))}
 
 
-                    <tbody>
-
-                        {/* Map Works */}
-                        {/* Moment works */}
-
-                        {this.props.employees.map((employee) => (
-                            
-                            < tr >
-                                <th scope="row"></th>
-
-                                <td>
-                                    <img
-                                        src={employee.picture.medium}
-                                        alt='employee'
-                                    />
-                                </td>
-
-
-                                <td>{employee.name.first} {employee.name.last}</td>
-                                <td>{employee.phone}</td>
-                                <td>{employee.email}</td>
-                                <Moment format="MM/DD/YYYY">
-                                    <td>{employee.dob.date}</td>
-                                </Moment>
-                            </tr>
-
-                        ))}
-
-
-                    </tbody>
-                </table>
-            </div >
-
-
-        )
-    }
+            </tbody>
+        </table>
+    </div >
+    )
 }
