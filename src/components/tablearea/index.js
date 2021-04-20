@@ -7,7 +7,17 @@ import getEmployeeName from "../../util/API";
 import PageHeaderComponent from '../pageheader/pageHeaderComponent';
 import API from "../../util/API";
 
-
+function handleInputChange(e){
+    const newInput = e.target.value;
+    setSearchInput(newInput);
+  
+    if( newInput.length >0){
+        const newList = employeeList.filter(employee=> employee.user.name.first.indexOf(newInput)==0)
+        setShowList( newList);
+    } else {
+        setShowList(employeeList );
+    }
+}
 
 
 export default class TableArea extends React.Component {
@@ -108,9 +118,10 @@ export default class TableArea extends React.Component {
             )
             //sort the first name
             //redisplay the emplpoyee data with the sorted data
-
+                    
 
     }
+
     
 
 
@@ -134,6 +145,8 @@ export default class TableArea extends React.Component {
                 <TableData
                     employees={this.state.employees}
                 />
+
+                
 
             </div>
         );
