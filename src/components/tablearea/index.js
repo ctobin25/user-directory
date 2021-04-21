@@ -7,17 +7,6 @@ import getEmployeeName from "../../util/API";
 import PageHeaderComponent from '../pageheader/pageHeaderComponent';
 import API from "../../util/API";
 
-function handleInputChange(e){
-    const newInput = e.target.value;
-    setSearchInput(newInput);
-  
-    if( newInput.length >0){
-        const newList = employeeList.filter(employee=> employee.user.name.first.indexOf(newInput)==0)
-        setShowList( newList);
-    } else {
-        setShowList(employeeList );
-    }
-}
 
 
 export default class TableArea extends React.Component {
